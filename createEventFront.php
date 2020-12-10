@@ -15,8 +15,8 @@
                 <i class="fa fa-bars"></i>
             </div>
             <div class="navbar__left">
-                    <a href="newadminhome.php">Dashboard</a>
-                    <a class="active_link" href="newadminFormFront.php">Create Event</a>
+                    <a href="adminhome.php">Dashboard</a>
+                    <a class="active_link" href="createEventFront.php">Create Event</a>
             </div>
             <div class="navbar__right">
                 <a href="#">
@@ -37,7 +37,7 @@
 
                 <div class="scroll">
 
-                <form action="nextpage.php" method="POST" id="thisform" style = "height: 100vh; 
+                <form action="createEventBack.php" method="POST" id="thisform" style = "height: 100vh; 
                 grid-template-columns: 0.8fr 1fr 1fr 1fr; grid-template-rows: 0.2fr 3fr; 
                 grid-template-areas: 'sidebar nav nav nav' 'sidebar main main main';">
                         <label for="start">Event Date:</label>
@@ -161,12 +161,12 @@
             <div class="sidebar__menu">
                 <div class="sidebar__link active_menu_link">
                     <i class="fa fa-home"></i>
-                    <a href="newadminhome.html">Dashboard</a>
+                    <a href="adminhome.php">Dashboard</a>
                 </div>
                 <h2>Event Management</h2>
                 <div class="sidebar__link" id ="create">
                     <i class="fa fa-plus-circle"></i>
-                    <a href="newadminFormFront.php" id="createSpecial">Create New Event</a>
+                    <a href="createEventFront.php" id="createSpecial">Create New Event</a>
                 </div>
                 <div class="sidebar__link" id ="update">
                     <i class="fa fa-pencil-square-o"></i>

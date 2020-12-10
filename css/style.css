@@ -10,7 +10,9 @@ body {
     box-sizing: border-box;
 }
 
-
+.h1{
+    color: #3b9669;
+}
 
 .text-primary-p{
     color: #a5aaad;

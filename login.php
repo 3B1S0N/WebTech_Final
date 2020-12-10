@@ -74,7 +74,7 @@ else{
     
 }
 
-echo "<script>window.location.href='newadminhome.php';</script>";
+echo "<script>window.location.href='adminhome.php';</script>";
     
     
 ?>

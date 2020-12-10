@@ -19,10 +19,11 @@ $result = mysqli_query($conn,$organiser_query);
 // $organiser_query = "SELECT * FROM Events WHERE organiser_id = $organiser_id"; 
 // create button on the card
 // give buttton an id. Id should be the event_id
+//<button id=  echo $row['event_id']>Store ID</button>
 
 ?>
 
-<button id= <?php echo $row['event_id']?>>Store ID</button>
+
 
 
 <!DOCTYPE html>
@@ -42,8 +43,8 @@ $result = mysqli_query($conn,$organiser_query);
                 <i class="fa fa-bars"></i>
             </div>
             <div class="navbar__left">
-                    <a class="active_link" href="newadminhome.html">Dashboard</a>
-                    <a href="newadminFormFront.php">Create Event</a>
+                    <a class="active_link" href="adminhome.php">Dashboard</a>
+                    <a href="createEventFront.php">Create Event</a>
             </div>
             <div class="navbar__right">
                 <a href="#">
@@ -148,12 +149,12 @@ $result = mysqli_query($conn,$organiser_query);
             <div class="sidebar__menu">
                 <div class="sidebar__link active_menu_link">
                     <i class="fa fa-home"></i>
-                    <a href="newadminhome.html">Dashboard</a>
+                    <a href="adminhome.php">Dashboard</a>
                 </div>
                 <h2>Event Management</h2>
                 <div class="sidebar__link" id ="create">
                     <i class="fa fa-plus-circle"></i>
-                    <a href="newadminFormFront.php" id="createSpecial">Create New Event</a>
+                    <a href="createEventFront.php" id="createSpecial">Create New Event</a>
                 </div>
                 <div class="sidebar__link" id ="update">
                     <i class="fa fa-pencil-square-o"></i>
