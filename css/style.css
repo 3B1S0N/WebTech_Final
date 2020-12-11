@@ -116,7 +116,8 @@ input[type=text] {
     border-radius: 4px;
   }
 
-  select{
+  
+  .select{
     float: left;
     width: calc(100% - 50px);
     padding: 16px 20px;
@@ -126,6 +127,19 @@ input[type=text] {
     border-radius: 4px;
     
   }
+
+  div#check p#check2 span#check3 select#check4{
+    width: auto;
+    box-sizing: border-box;
+    border: 2px solid #3b9669;
+    border-radius: 4px;
+
+  }
+
+  #thisLink:hover{
+      color: #3b9669;
+  }
+
   input[type=number] {
     float: left;
     width: calc(100% - 50px);
@@ -135,10 +149,27 @@ input[type=text] {
     border: 2px solid #3b9669;
     border-radius: 4px;
   }
-  
-  
 
-  button{
+  .seclect_button{
+      width: auto;
+      box-sizing: border-box;
+      border: 2px solid #3b9669;
+      border-radius: 4px;
+
+  }
+  
+  .update_button{
+      width: 10%;
+      background-color: #000000;
+      color: white;
+      align-items: center;
+      border-radius: 4px;
+      padding: 16px 32px;
+      text-decoration: none;
+      height: auto;
+  }
+
+  .button{
     width: 20%;
     align-items: center;
     background-color: #4CAF50;

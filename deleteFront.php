@@ -15,11 +15,16 @@ if(isset($_SESSION['organiser'])){
 $organiser_query = "SELECT Event_Name FROM Events WHERE organiser_id = $organiser_id";
 $result = mysqli_query($conn,$organiser_query);
 
+$update_query = "SELECT Event_ID FROM Events WHERE  organiser_id = $organiser_id";
+$result_2 = mysqli_query($conn,$update_query);
+
 //delete and update page
 // $organiser_query = "SELECT * FROM Events WHERE organiser_id = $organiser_id"; 
 // create button on the card
 // give buttton an id. Id should be the event_id
-//<button id=  echo $row['event_id']>Store ID</button>
+//id= <?php echo $row['Event_ID'];|| <button id=  echo $row['event_id']>Store ID</button> || && $row_2 = mysqli_fetch_assoc($result_2)
+
+
 
 ?>
 
@@ -76,8 +81,8 @@ $result = mysqli_query($conn,$organiser_query);
                     <div class="card" id="card1">
                         <i class="fa fa fa-star-half-o fa-2x text-lightblue"></i>
                         <div class="card__inner">
-                            <p class="text-primary-p"><?php echo $row['Event_Name']; ?></p>
-                            <span class="font-bold text-title">*Insert*</span>
+                            <p class="text-primary-p"><?php echo $row['Event_Name']; ?></p><br>
+                            <span class="font-bold text-title"><a href="#" id="thisLink">DELETE</a></span>
                         </div>
                     </div>
                     <?php
@@ -158,11 +163,11 @@ $result = mysqli_query($conn,$organiser_query);
                 </div>
                 <div class="sidebar__link" id ="update">
                     <i class="fa fa-pencil-square-o"></i>
-                    <a href="updateFront.php" id ="updateSpecial">Update Event</a>
+                    <a href="#" id ="updateSpecial">Update Event</a>
                 </div>
                 <div class="sidebar__link" id ="delete">
                     <i class="fa fa-trash"></i>
-                    <a href="deleteFront.php" id ="deleteSpecial">Delete Event</a>
+                    <a href="#" id ="deleteSpecial">Delete Event</a>
                 </div>
                 <div class="sidebar__link" id ="customer">
                     <i class="fa fa-bookmark-o"></i>

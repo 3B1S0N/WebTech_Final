@@ -63,7 +63,7 @@
                         <input type="text" name="name" id="name"><br><br>
 
                         <label for="Season">Season</label>
-                        <select name="season" id="season"><br><br>
+                        <select name="season" id="season" class="select"><br><br>
                             <option value="Spring">Spring</option>
                             <option value="Summer">Summer</option>
                             <option value="Autmn">Autmn</option>
@@ -73,7 +73,7 @@
                         </select><br><br>
 
                         <label for="Access">Event Access Type</label>
-                        <select name="event_access_type" id="Access Type"><br><br>
+                        <select name="event_access_type" id="Access Type" class="select"><br><br>
                             <option value="Ticketed">Ticketed</option>
                             <option value="Non-Ticketed">Non-Ticketed</option>
                         </select><br><br>
@@ -93,7 +93,7 @@
                         <!-- <label for="company_name">Company Name</label> 
                         <input type="text" name="company_name" id="company_name"><br><br> -->
                             
-                        <button type="submit" form = "thisform" name="create_event">Create Event</button>
+                        <button type="submit" form = "thisform" name="create_event" class="button">Create Event</button>
                             
                 </form> 
                   
