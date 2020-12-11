@@ -171,7 +171,7 @@ $result = mysqli_query($conn,$organiser_query);
                
                 <div class="sidebar__logout">
                     <i class="fa fa-power-off"></i>
-                    <a href="#">Log out</a>
+                    <a href="logout.php">Log out</a>
                 </div>
             </div>
         </div>

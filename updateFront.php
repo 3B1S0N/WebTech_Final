@@ -163,11 +163,11 @@ $result_2 = mysqli_query($conn,$update_query);
                 </div>
                 <div class="sidebar__link" id ="update">
                     <i class="fa fa-pencil-square-o"></i>
-                    <a href="#" id ="updateSpecial">Update Event</a>
+                    <a href="updateFront.php" id ="updateSpecial">Update Event</a>
                 </div>
                 <div class="sidebar__link" id ="delete">
                     <i class="fa fa-trash"></i>
-                    <a href="#" id ="deleteSpecial">Delete Event</a>
+                    <a href="deleteFront.php" id ="deleteSpecial">Delete Event</a>
                 </div>
                 <div class="sidebar__link" id ="customer">
                     <i class="fa fa-bookmark-o"></i>
@@ -176,7 +176,7 @@ $result_2 = mysqli_query($conn,$update_query);
                
                 <div class="sidebar__logout">
                     <i class="fa fa-power-off"></i>
-                    <a href="#">Log out</a>
+                    <a href="logout.php">Log out</a>
                 </div>
             </div>
         </div>
