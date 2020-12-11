@@ -136,10 +136,6 @@ input[type=text] {
 
   }
 
-  #thisLink:hover{
-      color: #3b9669;
-  }
-
   input[type=number] {
     float: left;
     width: calc(100% - 50px);

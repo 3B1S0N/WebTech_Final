@@ -48,7 +48,7 @@
         <label for="pass"><b>Password</b></label>  
 
        <!-- Reference Code -->
-        <div ng-controller="PasswordController">
+            <div ng-controller="PasswordController">
                 <div style="float: left; width: 100px">
                     <input type="password" ng-model="password" name = "pass" ng-change="analyze(password)" style="width: 100px; height: 25px" />
                 </div>

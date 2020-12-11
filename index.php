@@ -26,11 +26,11 @@
 <body>
 	
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('images/img-01.jpg');">
+		<div class="container-login100" style="background-image: url('images/Green.jpg');">
 			<div class="wrap-login100 p-t-190 p-b-30">
 				<form class="login100-form validate-form" action="login.php"  method="POST" id="login">
 					<div class="login100-form-avatar">
-						<img src="images/avatar-01.jpg" alt="AVATAR">
+						<img src="images/venty.png" alt="AVATAR">
 					</div>
 
 					<span class="login100-form-title p-t-20 p-b-45">
@@ -76,7 +76,7 @@
 						</a>
 					</div>
 					<div class="text-center w-full">
-						<a class="txt1" href="clientRegisterFront.php">
+						<a class="txt1" href="signup.php">
 							<i class="fa fa-long-arrow-left"></i>
 							Create Client account						
 						</a>

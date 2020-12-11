@@ -14,9 +14,13 @@ $uname = $_POST['username'];
 if(isset($_POST['pass'])){
     $upass = $_POST['pass'];
 }
+$verifypass = $_POST['verifypass'];
 $gender = $_POST["gender"];
 
-
+if($verifypass != $upass){
+    echo "<script> alert('Sorry, passwords do not match) </script>";
+    //echo "<script>window.location.href='signup.php';</script>";
+}
 
 // hash the password
 $pass_hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
@@ -35,12 +39,12 @@ if(mysqli_num_rows($verify) > 1) {
 
 // verify query results and display appropriate message
 if ($results) {    
-    echo "<script>window.location.href='index.php';</script>";
-    exit();
+    //echo "<script>window.location.href='index.php';</script>";
+    //exit();
 } 
 else {  
     echo "<script> alert('Username Already Exists') </script>";
-    echo "<script>window.location.href='clientRegisterFront.php';</script>";
+    //echo "<script>window.location.href='clientRegisterFront.php';</script>";
 }  
     
 mysqli_close($conn);

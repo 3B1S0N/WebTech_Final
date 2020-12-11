@@ -145,8 +145,8 @@ $result_2 = mysqli_query($conn,$update_query);
         <div id="sidebar">
             <div class="sidebar__title">
                 <div class="sidebar__img">
-                    <img src="Assets/logo-2.png" alt="">
-                    <h1>Venty Co.</h1>
+                <img src="images/venty.png" alt="">
+                    <h1>Venty Projects Ltd.</h1>
                 </div>
                 <i class="fa fa-times" id="sidebarIcon" onclick="closeSidebar"></i>
             </div>
