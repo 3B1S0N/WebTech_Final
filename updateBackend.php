@@ -69,12 +69,12 @@ if (!$conn) {
 $update = mysqli_query($conn, $sql);
 
 if($update){  
-    echo "<script>window.location.href='adminhome.php';</script>";
+    //echo "<script>window.location.href='adminhome.php';</script>";
     // do something to show it has been updated succesfully then add a back button
     echo "succesful";
 }
 else{
-    echo "<script>window.location.href='adminhome.php';</script>";
+    //echo "<script>window.location.href='adminhome.php';</script>";
     // error . html  
     echo "error";
     
@@ -85,12 +85,12 @@ else{
 
 
 }
-$updatedEvent = new update_event(1, '2018-07-22', '12:59', '12:59', '12:59', '12:59', 'Concert', 'A Wars', 'Spring', 'Ticketed', 'Lapalm Royale Beach Resort', 5, 6, 2);
+// $updatedEvent = new update_event(2, '2018-07-22', '12:59', '12:59', '12:59', '12:59', 'Concert', 'A Wars', 'Spring', 'Ticketed', 'Lapalm Royale Beach Resort', 5, 6, 2);
 
-    $results =  $updatedEvent->ThisEvent($updatedEvent->date, $updatedEvent->ex_start_time, $updatedEvent->ac_start_time, 
-    $updatedEvent->ex_end_time, $updatedEvent->ac_end_time,  $updatedEvent->Event_type, $updatedEvent->Event_name, 
-    $updatedEvent->Season, $updatedEvent->Event_access, $updatedEvent->Location, $updatedEvent->Capacity, 
-    $updatedEvent->Attendance, $updatedEvent->Streams);
+//     $results =  $updatedEvent->ThisEvent($updatedEvent->date, $updatedEvent->ex_start_time, $updatedEvent->ac_start_time, 
+//     $updatedEvent->ex_end_time, $updatedEvent->ac_end_time,  $updatedEvent->Event_type, $updatedEvent->Event_name, 
+//     $updatedEvent->Season, $updatedEvent->Event_access, $updatedEvent->Location, $updatedEvent->Capacity, 
+//     $updatedEvent->Attendance, $updatedEvent->Streams);
 
 
 ?>

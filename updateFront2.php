@@ -1,39 +1,4 @@
-<?php
-//Db Stuff
-$conn = mysqli_connect('localhost', 'root', '', 'venty');
-
-//check connection
-if (!$conn) {    
-    die('Connection failed: ' . mysqli_connect_error());
-}
-
-include_once('updateBackend.php');
-
-$This_id = $_GET['id'];
-
-if(isset($_POST['start_date'], $_POST['ex_start_time'], $_POST['ac_start_time'], $_POST['ex_end_time'], $_POST['ac_end_time'],
-$_POST['type'], $_POST['name'], $_POST['Season'], $_POST['event_access_type'], $_POST['location'], $_POST['capacity'],
-$_POST['attendance'],$_POST['stream_attendance'],)){
-
-    $updatedEvent = new update_event(1, '2018-07-22', '12:59', '12:59', '12:59', '12:59', 'Concert', 'A Flap', 'Spring', 'Ticketed', 'Lapalm Royale Beach Resort', 5, 6, 2);
-
-    // $updatedEvent = new update_event($_POST['ID'], $_POST['start_date'], $_POST['ex_start_time'], $_POST['ac_start_time'], $_POST['ex_end_time'], $_POST['ac_end_time'],
-    // $_POST['type'], $_POST['name'], $_POST['Season'], $_POST['event_access_type'], $_POST['location'], $_POST['capacity'],
-    // $_POST['attendance'],$_POST['stream_attendance']);
-
-    $results =  $updatedEvent->ThisEvent($updatedEvent->date, $updatedEvent->ex_start_time, $updatedEvent->ac_start_time, 
-    $updatedEvent->ex_end_time, $updatedEvent->ac_end_time,  $updatedEvent->Event_type, $updatedEvent->Event_name, 
-    $updatedEvent->Season, $updatedEvent->Event_access, $updatedEvent->Location, $updatedEvent->Capacity, 
-    $updatedEvent->Attendance, $updatedEvent->Streams);
-    
-}
-
-
-$old_values = "SELECT * FROM Events WHERE Event_ID = $This_id";
-$result = mysqli_query($conn,$old_values);
-?>
-
-
+<?php include_once("updateThinking.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,7 +38,7 @@ $result = mysqli_query($conn,$old_values);
 
                 <div class="scroll">
 
-                <form action="updateFront2.php" method="POST" id="thisform" style = "height: 100vh; 
+                <form action="updateThinking.php" method="POST" id="thisform" style = "height: 100vh; 
                 grid-template-columns: 0.8fr 1fr 1fr 1fr; grid-template-rows: 0.2fr 3fr; 
                 grid-template-areas: 'sidebar nav nav nav' 'sidebar main main main';">
 

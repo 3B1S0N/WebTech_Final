@@ -79,7 +79,7 @@ $result = mysqli_query($conn,$organiser_query);
                         <i class="fa fa fa-star-half-o fa-2x text-lightblue"></i>
                         <div class="card__inner">
                             <p class="text-primary-p"><?php echo $row['Event_Name']; ?></p><br>
-                            <span class="font-bold text-title"><a href="updateFront2.php?id=<?php echo $row['Event_ID']?>" id="thisLink">UPDATE</a></span>
+                            <span class="font-bold text-title"><a href="updateFront2.php?ID=<?php echo $row['Event_ID']?>" id="thisLink">UPDATE</a></span>
                         </div>
                     </div>
                     <?php
