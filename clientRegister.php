@@ -17,12 +17,10 @@ if(isset($_POST['pass'])){
 $verifypass = $_POST['verifypass'];
 $gender = $_POST["gender"];
 
-if($verifypass != $upass){
+if($verifypass == $upass){
     echo "<script> alert('Sorry, passwords do not match) </script>";
-    //echo "<script>window.location.href='signup.php';</script>";
-}
 
-// hash the password
+    // hash the password
 $pass_hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
 // write query
@@ -39,8 +37,8 @@ if(mysqli_num_rows($verify) > 1) {
 
 // verify query results and display appropriate message
 if ($results) {    
-    //echo "<script>window.location.href='index.php';</script>";
-    //exit();
+    echo "<script>window.location.href='index.php';</script>";
+    exit();
 } 
 else {  
     echo "<script> alert('Username Already Exists') </script>";
@@ -48,8 +46,17 @@ else {
 }  
     
 mysqli_close($conn);
+    
+}
+else{
+    
+    echo "<script>window.location.href='signup.php';</script>";
+
+}
+
 
 
 // Style Alert Box
 // https://www.tutorialspoint.com/How-to-create-and-apply-CSS-to-JavaScript-Alert-box
 ?>
+

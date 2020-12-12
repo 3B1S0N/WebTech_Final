@@ -12,11 +12,8 @@ if(isset($_SESSION['organiser'])){
     $organiser_id = $_SESSION['organiser'];
 }
 
-$organiser_query = "SELECT Event_Name FROM Events WHERE organiser_id = $organiser_id";
+$organiser_query = "SELECT * FROM Events WHERE organiser_id = $organiser_id";
 $result = mysqli_query($conn,$organiser_query);
-
-$update_query = "SELECT Event_ID FROM Events WHERE  organiser_id = $organiser_id";
-$result_2 = mysqli_query($conn,$update_query);
 
 //delete and update page
 // $organiser_query = "SELECT * FROM Events WHERE organiser_id = $organiser_id"; 
@@ -82,7 +79,7 @@ $result_2 = mysqli_query($conn,$update_query);
                         <i class="fa fa fa-star-half-o fa-2x text-lightblue"></i>
                         <div class="card__inner">
                             <p class="text-primary-p"><?php echo $row['Event_Name']; ?></p><br>
-                            <span class="font-bold text-title"><a href="#" id="thisLink">UPDATE</a></span>
+                            <span class="font-bold text-title"><a href="updateFront2.php?id=<?php echo $row['Event_ID']?>" id="thisLink">UPDATE</a></span>
                         </div>
                     </div>
                     <?php
