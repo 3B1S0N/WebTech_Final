@@ -170,7 +170,7 @@
                 </div>
                 <div class="sidebar__link" id ="update">
                     <i class="fa fa-pencil-square-o"></i>
-                    <a href="updateFront.php" id ="updateSpecial">Update Event</a>
+                    <a href="updateHome.php" id ="updateSpecial">Update Event</a>
                 </div>
                 <div class="sidebar__link" id ="delete">
                     <i class="fa fa-trash"></i>

@@ -1,13 +1,10 @@
 <?php 
 //consider security for id by researching html encrytption instead of ? id =1
-//try not to copy ekow's code
 
-$conn = mysqli_connect('localhost', 'root', '', 'venty');
+include_once('databaseClass.php');
+$db = new DatabaseClass ();
 
-// check connection
-if (!$conn) {    
-    die('Connection failed: ' . mysqli_connect_error());
-}
+$db->connect();
 
 class update_event{
 
@@ -42,55 +39,42 @@ $ex_end_time, $ac_end_time, $Event_type, $Event_name, $Season, $Event_access, $L
     $this->Location = $Location;
     $this->Capacity = $Capacity;
     $this->Attendance = $Attendance;
-    $this->Streams = $Streams;  
-}
-
-
-public function ThisEvent($date, $ex_start_time, $ac_start_time, $ex_end_time,
- $ac_end_time,  $Event_type, $Event_name, $Season, $Event_access, $Location, $Capacity, $Attendance, $Streams){
-
-//connect the db
-
-//updating query for database
-$sql = "UPDATE Events SET Event_Date = '$date', Expected_start_time = '$ex_start_time', Actual_start_time = '$ac_start_time',
-Expected_end_time = '$ex_end_time', Actual_end_time = '$ac_end_time', Event_Type = '$Event_type', Event_Name = '$Event_name', 
-Season = '$Season', Ticketed = '$Event_access', Event_location = '$Location', Event_capacity = '$Capacity', Attendance_level = '$Attendance', 
-Streamer_level = '$Streams' WHERE Event_ID = '$this->event_id'";
-
-echo $sql;
-
-$conn = mysqli_connect('localhost', 'root', '', 'venty');
-
-// check connection
-if (!$conn) {    
-    die('Connection failed: ' . mysqli_connect_error());
-}
-
-$update = mysqli_query($conn, $sql);
-
-if($update){  
-    //echo "<script>window.location.href='adminhome.php';</script>";
-    // do something to show it has been updated succesfully then add a back button
-    echo "succesful";
-}
-else{
-    //echo "<script>window.location.href='adminhome.php';</script>";
-    // error . html  
-    echo "error";
+    $this->Streams = $Streams; 
     
+    
+    $sql = "UPDATE Events SET Event_Date = '$date', Expected_start_time = '$ex_start_time', Actual_start_time = '$ac_start_time',
+    Expected_end_time = '$ex_end_time', Actual_end_time = '$ac_end_time', Event_Type = '$Event_type', Event_Name = '$Event_name', 
+    Season = '$Season', Ticketed = '$Event_access', Event_location = '$Location', Event_capacity = '$Capacity', Attendance_level = '$Attendance', 
+    Streamer_level = '$Streams' WHERE Event_ID = '$event_id'";
+    
+    
+    
+    $conn = mysqli_connect('localhost', 'root', '', 'venty');
+    
+    // check connection
+    if (!$conn) {    
+        die('Connection failed: ' . mysqli_connect_error());
+    }
+    
+    $update = mysqli_query($conn, $sql);
+
+    if($update){  
+        echo "<script>window.location.href='adminhome.php';</script>";
+        // do something to show it has been updated succesfully then add a back button
+        //echo "succesful";
+    }
+
+    else{
+        //echo "<script>window.location.href='adminhome.php';</script>";
+        //Error Page
+        //echo "error";
+        
+    }
+    
+
+}   
+
 }
-
-
-}
-
-
-}
-// $updatedEvent = new update_event(2, '2018-07-22', '12:59', '12:59', '12:59', '12:59', 'Concert', 'A Wars', 'Spring', 'Ticketed', 'Lapalm Royale Beach Resort', 5, 6, 2);
-
-//     $results =  $updatedEvent->ThisEvent($updatedEvent->date, $updatedEvent->ex_start_time, $updatedEvent->ac_start_time, 
-//     $updatedEvent->ex_end_time, $updatedEvent->ac_end_time,  $updatedEvent->Event_type, $updatedEvent->Event_name, 
-//     $updatedEvent->Season, $updatedEvent->Event_access, $updatedEvent->Location, $updatedEvent->Capacity, 
-//     $updatedEvent->Attendance, $updatedEvent->Streams);
 
 
 ?>

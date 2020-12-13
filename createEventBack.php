@@ -1,12 +1,17 @@
 <?php
-session_start();    
-// create connection
-$conn = mysqli_connect('localhost', 'root', '', 'venty');
+session_start();  
+include_once('databaseClass.php');
+$db = new DatabaseClass ();
 
-// check connection
-if (!$conn) {    
-    die('Connection failed: ' . mysqli_connect_error());
-}
+$db->connect();
+
+// // create connection
+// $conn = mysqli_connect('localhost', 'root', '', 'venty');
+
+// // check connection
+// if (!$conn) {    
+//     die('Connection failed: ' . mysqli_connect_error());
+// }
 
 //grab form data 
 $startDate = $_POST['start_date'];
@@ -38,8 +43,7 @@ if(isset($_SESSION['organiser'])){
 //     }
 
 
-//Query to insert form values into database
-// if(isset($_POST['create_event'])){
+
     $sql = "INSERT INTO Events (Event_Date, Expected_start_time, Actual_start_time, 
     Expected_end_time, Actual_end_time, Event_Type, Event_Name, Season, 
     Ticketed, Event_location, Event_capacity, Attendance_level, Streamer_level, 
@@ -47,22 +51,19 @@ if(isset($_SESSION['organiser'])){
     '$eventType','$eventName', '$season','$accessType','$location','$capacity','$attendance'
     ,'$streamAttendance','$organiser_id')"; 
 
-    $results = mysqli_query($conn, $sql);
+    $results = $db->query_executed($sql);
 
     if($results){
         echo "<script> alert('Event Succfully Created')</script>";
     }
     
     else{
-        die("ERROR: Could not able to execute $sql. " . mysqli_error($conn));
+        die("ERROR: Could not execute.");
     }
 
 // }
 
 //create an interface the user will see after event is created
 echo '<a href="adminhome.php">Home</a><br><br>';
-mysqli_close($conn);
-
-    
-    
+        
 ?>

@@ -1,18 +1,30 @@
 <?php
-session_start(); 
+session_start();
 include_once('databaseClass.php');
 $db = new DatabaseClass ();
+$db->connect();
+
+
+// // create connection
+// $conn = mysqli_connect('localhost', 'root', '', 'venty');
+
+// // check connection
+// if (!$conn) {    
+//     die('Connection failed: ' . mysqli_connect_error());
+// }
 
 if(isset($_SESSION['organiser'])){
     $organiser_id = $_SESSION['organiser'];
 }
 
-$result = $db->query_executed("SELECT Event_Name FROM Events WHERE organiser_id = $organiser_id");
+$result = $db->query_executed("SELECT * FROM Events WHERE organiser_id = $organiser_id");
 
-// $organiser_query = "SELECT Event_Name FROM Events WHERE organiser_id = $organiser_id";
-// $result = mysqli_query($db->connect(),$organiser_query);
+// $organiser_query = "SELECT * FROM Events WHERE organiser_id = $organiser_id";
+// $result = mysqli_query($conn,$organiser_query);
+
 
 ?>
+
 
 
 
@@ -54,7 +66,6 @@ $result = $db->query_executed("SELECT Event_Name FROM Events WHERE organiser_id 
                             echo '<h1>Hello ' . $_SESSION['user'] . '</h1><br>'; 
                         }
                         ?>
-                        <!-- <h1>Hello *Insert Name Here*</h1> -->
                         <p>Welcome to your admin dashboard</p><br><br><br>
                     </div>
                 </div>
@@ -66,71 +77,20 @@ $result = $db->query_executed("SELECT Event_Name FROM Events WHERE organiser_id 
                     <div class="card" id="card1">
                         <i class="fa fa fa-star-half-o fa-2x text-lightblue"></i>
                         <div class="card__inner">
-                            <p class="text-primary-p"><?php echo $row['Event_Name']; ?></p>
-                            <span class="font-bold text-title">*Insert*</span>
+                            <p class="text-primary-p"><?php echo $row['Event_Name']; ?></p><br>
+                            <span class="font-bold text-title"><a href="updateFront.php?ID=<?php echo $row['Event_ID']?>" id="thisLink">UPDATE</a></span>
                         </div>
                     </div>
                     <?php
                         }
                     ?>
-                               
-                <!-- <div class="container"> 
-                    <div class="charts"> -->
-
-                        <!-- <div class="charts__left">
-                            <div class="charts__left__title">
-                                <div>
-                                    <h1>Daily Reports</h1>
-                                    <p>Cupertino, California, USA</p>
-                                </div>
-                                <i class="fa fa-usd"></i>
-                            </div>
-                            <div id="apex1"></div>
-                        </div> -->
-
-                        <!-- <div class="charts__right">
-                            <div class="charts__right__title">
-                                <div>
-                                    <h1>Stats Reports</h1>
-                                    <p>Cupertino, California, USA</p>
-                                </div>
-                                <i class="fa fa-usd"></i>
-                            </div>
-
-                            <div class="charts__right_cards">
-    
-                                <div class="card1">
-                                    <h1>Income</h1>
-                                    <p>$75,300</p>
-                                </div>
-
-                                <div class="card2">
-                                    <h1>Sales</h1>
-                                    <p>$124,100</p>
-                                </div>
-
-                                <div class="card3">
-                                    <h1>Users</h1>
-                                    <p>3900</p>
-                                </div>
-
-                                <div class="card4">
-                                    <h1>Orders</h1>
-                                    <p>1881</p>
-                                </div>
-                            </div>
-                        </div> -->
-                    <!-- </div>
-                </div> -->
-
                 </div>
             </div>
         </main>
-
         <div id="sidebar">
             <div class="sidebar__title">
                 <div class="sidebar__img">
-                    <img src="images/venty.png" alt="">
+                <img src="images/venty.png" alt="">
                     <h1>Venty Projects Ltd.</h1>
                 </div>
                 <i class="fa fa-times" id="sidebarIcon" onclick="closeSidebar"></i>
@@ -148,7 +108,7 @@ $result = $db->query_executed("SELECT Event_Name FROM Events WHERE organiser_id 
                 </div>
                 <div class="sidebar__link" id ="update">
                     <i class="fa fa-pencil-square-o"></i>
-                    <a href="updateHome.php" id ="updateSpecial">Update Event</a>
+                    <a href="updateFront.php" id ="updateSpecial">Update Event</a>
                 </div>
                 <div class="sidebar__link" id ="delete">
                     <i class="fa fa-trash"></i>
@@ -167,8 +127,5 @@ $result = $db->query_executed("SELECT Event_Name FROM Events WHERE organiser_id 
         </div>
 
     </div>
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="js/script.js"></script> -->
 </body>
 </html>

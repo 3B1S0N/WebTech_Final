@@ -1,31 +1,17 @@
-<?php
-session_start(); 
-// create connection
-$conn = mysqli_connect('localhost', 'root', '', 'venty');
+<?php 
+include_once('databaseClass.php');
+$db = new DatabaseClass ();
 
-// check connection
-if (!$conn) {    
-    die('Connection failed: ' . mysqli_connect_error());
+
+if(isset($_GET['ID'])){
+    $This_id = $_GET['ID'];
+} else if(isset($_POST['ID'])){
+    $This_id = $_POST['ID'];
 }
 
-if(isset($_SESSION['organiser'])){
-    $organiser_id = $_SESSION['organiser'];
-}
-
-$organiser_query = "SELECT * FROM Events WHERE organiser_id = $organiser_id";
-$result = mysqli_query($conn,$organiser_query);
-
-//delete and update page
-// $organiser_query = "SELECT * FROM Events WHERE organiser_id = $organiser_id"; 
-// create button on the card
-// give buttton an id. Id should be the event_id
-//id= <?php echo $row['Event_ID'];|| <button id=  echo $row['event_id']>Store ID</button> || && $row_2 = mysqli_fetch_assoc($result_2)
-
-
+$result = $db->query_executed("SELECT * FROM Events WHERE Event_ID = $This_id");
 
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -45,8 +31,8 @@ $result = mysqli_query($conn,$organiser_query);
                 <i class="fa fa-bars"></i>
             </div>
             <div class="navbar__left">
-                    <a class="active_link" href="adminhome.php">Dashboard</a>
-                    <a href="createEventFront.php">Create Event</a>
+                    <a href="adminhome.php">Dashboard</a>
+                    <a class="active_link" href="createEventFront.php">Create Event</a>
             </div>
             <div class="navbar__right">
                 <a href="#">
@@ -61,80 +47,79 @@ $result = mysqli_query($conn,$organiser_query);
                 <div class="main__title">
                     <img src="Assets/hello.svg" alt="">
                     <div class="main_greeting">
-                        <?php
-                        if(isset($_SESSION['user'])){    
-                            echo '<h1>Hello ' . $_SESSION['user'] . '</h1><br>'; 
-                        }
-                        ?>
-                        <!-- <h1>Hello *Insert Name Here*</h1> -->
-                        <p>Welcome to your admin dashboard</p><br><br><br>
+                       
                     </div>
                 </div>
 
-                <div class="main__cards">
-                <?php
-                    while($row = mysqli_fetch_assoc($result)){
-                        ?>
-                    <div class="card" id="card1">
-                        <i class="fa fa fa-star-half-o fa-2x text-lightblue"></i>
-                        <div class="card__inner">
-                            <p class="text-primary-p"><?php echo $row['Event_Name']; ?></p><br>
-                            <span class="font-bold text-title"><a href="updateFront2.php?ID=<?php echo $row['Event_ID']?>" id="thisLink">UPDATE</a></span>
-                        </div>
-                    </div>
-                    <?php
-                        }
-                    ?>
-                               
-                <!-- <div class="container"> 
-                    <div class="charts"> -->
+                <div class="scroll">
 
-                        <!-- <div class="charts__left">
-                            <div class="charts__left__title">
-                                <div>
-                                    <h1>Daily Reports</h1>
-                                    <p>Cupertino, California, USA</p>
-                                </div>
-                                <i class="fa fa-usd"></i>
-                            </div>
-                            <div id="apex1"></div>
-                        </div> -->
+                <form action="updateThinking.php" method="POST" id="thisform" style = "height: 100vh; 
+                grid-template-columns: 0.8fr 1fr 1fr 1fr; grid-template-rows: 0.2fr 3fr; 
+                grid-template-areas: 'sidebar nav nav nav' 'sidebar main main main';">
 
-                        <!-- <div class="charts__right">
-                            <div class="charts__right__title">
-                                <div>
-                                    <h1>Stats Reports</h1>
-                                    <p>Cupertino, California, USA</p>
-                                </div>
-                                <i class="fa fa-usd"></i>
-                            </div>
+                <?php if(mysqli_num_rows($result)>0){ 
+                        $row = mysqli_fetch_assoc($result);?>
 
-                            <div class="charts__right_cards">
-    
-                                <div class="card1">
-                                    <h1>Income</h1>
-                                    <p>$75,300</p>
-                                </div>
+                        <input type="hidden" name="ID" value="<?php echo $This_id;?>">
 
-                                <div class="card2">
-                                    <h1>Sales</h1>
-                                    <p>$124,100</p>
-                                </div>
+                        <label for="start">Event Date:</label>
+                        <input type="date" id="start_date" name="start_date"
+                        value=<?php echo $row['Event_Date']; ?> min="1950-01-01" max="2022-12-31"><br><br>
 
-                                <div class="card3">
-                                    <h1>Users</h1>
-                                    <p>3900</p>
-                                </div>
+                        <label for="appt">Expected Start Time:</label>
+                        <input type="time" id="ex_start_time" name="ex_start_time"  value="<?php echo $row['Expected_start_time']; ?>"required><br><br>
 
-                                <div class="card4">
-                                    <h1>Orders</h1>
-                                    <p>1881</p>
-                                </div>
-                            </div>
-                        </div> -->
-                    <!-- </div>
-                </div> -->
+                        <label for="appt">Actual Start Time:</label>
+                        <input type="time" id="ac_start_time" name="ac_start_time" value="<?php echo $row['Actual_start_time']; ?>" required><br><br>
 
+                        <label for="appt">Expected End Time:</label>
+                        <input type="time" id="ex_start_time" name="ex_end_time"  value="<?php echo $row['Expected_end_time']; ?>" required><br><br>
+
+                        <label for="appt">Actual End Time:</label>
+                        <input type="time" id="ac_start_time" name="ac_end_time"  value="<?php echo $row['Actual_end_time']; ?>" required><br><br>
+
+                        <label for="Event Type">Event Type</label>   
+                        <input type="text" name="type" value="<?php echo $row['Event_Type'];?>" id="type"><br><br>
+
+                        <label for="Event Name">Event Name</label>   
+                        <input type="text" name="name" id="name" value="<?php echo $row['Event_Name'];?>"><br><br>
+
+                        <label for="Season">Season</label>
+                        <select name="season" id="season" class="select" value="<?php echo $row['Season'];?>"><br><br>
+                            <option value="Spring">Spring</option>
+                            <option value="Summer">Summer</option>
+                            <option value="Autmn">Autmn</option>
+                            <option value="Winter">Winter</option>
+                            <option value="Rainy Season">Rainy Season</option>
+                            <option value="Dry Season">Dry Season</option>
+                        </select><br><br>
+
+                        <label for="Access">Event Access Type</label>
+                        <select name="event_access_type" value="<?php echo $row['Ticketed'];?>" id="Access Type" class="select"><br><br>
+                            <option value="Ticketed">Ticketed</option>
+                            <option value="Non-Ticketed">Non-Ticketed</option>
+                        </select><br><br>
+
+                        <label for="location">Location</label> 
+                        <input type="text" name="location" required value="<?php echo $row['Event_location'];?>"><br><br>
+
+                        <label for="capacity">Event Capacity</label> 
+                        <input type="number" name="capacity" value= "<?php echo $row['Event_capacity'];?>" required min="1" max="200000"><br><br>
+
+                        <label for="attendance">Event Attendance Level</label> 
+                        <input type="number" name="attendance" value="<?php echo $row['Attendance_level'];?>" min="1" max="200000"><br><br>
+
+                        <label for="stream_attendance">Livestream Attendance Level</label> 
+                        <input type="number" name="stream_attendance" value="<?php echo $row['Streamer_level'];?>" min="0"><br><br>
+
+                        
+                        
+                        <?php
+                            }     
+                    ?>      
+                </form> 
+                <button type="submit" form = "thisform" name="create_event" class="button">Update Event</button>
+                                     
                 </div>
             </div>
         </main>
@@ -180,7 +165,5 @@ $result = mysqli_query($conn,$organiser_query);
 
     </div>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="js/script.js"></script> -->
 </body>
 </html>
