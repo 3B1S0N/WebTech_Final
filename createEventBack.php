@@ -54,7 +54,7 @@ if(isset($_SESSION['organiser'])){
     $results = $db->query_executed($sql);
 
     if($results){
-        echo "<script> alert('Event Succfully Created')</script>";
+        echo "<script>window.location.href='createEventFeedback.php';</script>";
     }
     
     else{
@@ -62,8 +62,5 @@ if(isset($_SESSION['organiser'])){
     }
 
 // }
-
-//create an interface the user will see after event is created
-echo '<a href="adminhome.php">Home</a><br><br>';
         
 ?>
