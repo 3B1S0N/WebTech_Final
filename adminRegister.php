@@ -23,7 +23,6 @@ $pass_hash = password_hash($upass, PASSWORD_DEFAULT);
 $sql = "INSERT INTO organiser (company, fname, lname, email, pass) VALUES ('$company','$fname','$lname','$uname', '$pass_hash')";
 
 // execute query
-// $results = mysqli_query($conn, $sql);
 $results = $db->query_executed($sql);
 
 //check email is unique
@@ -39,7 +38,7 @@ if ($verify) {
 } 
 else {  
     echo "<script> alert('Error Could Not Register') </script>";
-    echo "<script>window.location.href='adminRegisterFront.';</script>";
+    echo "<script>window.location.href='adminSignup.php.';</script>";
 } 
     
 ?>

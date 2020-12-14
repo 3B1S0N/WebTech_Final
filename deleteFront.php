@@ -52,9 +52,6 @@ $result_2 = mysqli_query($conn,$update_query);
                     <a href="createEventFront.php">Create Event</a>
             </div>
             <div class="navbar__right">
-                <a href="#">
-                    <img width="30"src="images/avatar-01.jpg" alt="">
-                </a>
             </div>
         </nav>
 
@@ -62,7 +59,6 @@ $result_2 = mysqli_query($conn,$update_query);
             <div class="main__container">
 
                 <div class="main__title">
-                    <img src="Assets/hello.svg" alt="">
                     <div class="main_greeting">
                         <?php
                         if(isset($_SESSION['user'])){    

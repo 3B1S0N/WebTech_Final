@@ -35,9 +35,6 @@ $result = $db->query_executed("SELECT * FROM Events WHERE Event_ID = $This_id");
                     <a class="active_link" href="createEventFront.php">Create Event</a>
             </div>
             <div class="navbar__right">
-                <a href="#">
-                    <img width="30"src="images/avatar-01.jpg" alt="">
-                </a>
             </div>
         </nav>
 
@@ -45,7 +42,6 @@ $result = $db->query_executed("SELECT * FROM Events WHERE Event_ID = $This_id");
             <div class="main__container">
 
                 <div class="main__title">
-                    <img src="Assets/hello.svg" alt="">
                     <div class="main_greeting">
                        
                     </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V12</title>
+	<title>Venty Event Management System</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -30,7 +30,7 @@
 			<div class="wrap-login100 p-t-190 p-b-30">
 				<form class="login100-form validate-form" action="login.php"  method="POST" id="login">
 					<div class="login100-form-avatar">
-						<img src="images/venty.png" alt="AVATAR">
+						<img src="images/venty.png" alt="">
 					</div>
 
 					<span class="login100-form-title p-t-20 p-b-45">
@@ -62,13 +62,7 @@
 							Login as Client
 						</button> 
 					</div>
-<!--
-					<div class="text-center w-full p-t-25 p-b-230">
-						<a href="#" class="txt1">
-							Forgot Username / Password?
-						</a>
-					</div>
--->
+
 					<div class="text-center w-full p-t-25 p-b-23">
 						<a class="txt1" href="adminSignup.php">
 							Create Organiser account

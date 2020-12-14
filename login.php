@@ -1,6 +1,6 @@
 <?php
-session_start();    
-// create connection
+
+session_start();
 include_once('databaseClass.php');
 $db = new DatabaseClass ();
 
@@ -15,14 +15,12 @@ if (isset($_POST['butt1'])){
         $sql_1 = "SELECT * FROM organiser WHERE email = '$email'";
 
         // Execute query
-        //$result_1 = mysqli_query($conn, $sql_1);
         $result_1 = $db->query_executed($sql_1);
 
-        // check that exactly 1 row was returned
+        // Verify if their email account is in organiser table
         if (mysqli_num_rows($result_1) != 1) {  
             echo "<script> alert('Hmmm...Are you sure you are registered as an Organiser?') </script>";
-            //echo "<script>window.location.href='index.php';</script>";
-
+            echo "<script>window.location.href='index.php';</script>";
         }
 
         else{
@@ -40,28 +38,26 @@ if (isset($_POST['butt1'])){
                 $_SESSION['organiser'] = $user['organiser_id'];
             }
             else{
+
                 echo "<script> alert('Wrong Passowrd. Try Again.') </script>";
                 echo "<script>window.location.href='index.php';</script>";
 
             }
-
     }
 }
 
-else{
-    echo 'butt2';
 
+else{
         // write client query
         $sql_2 = "SELECT * FROM client WHERE email = '$email'";
 
         // Execute query
-        //$result_2 = mysqli_query($conn, $sql_2);
         $result_2 = $db->query_executed($sql_2);
 
-        // check that exactly 1 row was returned
+         // Verify if their email account is in organiser table
         if (mysqli_num_rows($result_2) != 1) {    
             echo "<script> alert('Hmmm...Are you sure you are registered as a Client?') </script>";
-            //echo "<script>window.location.href='index.php';</script>";
+            echo "<script>window.location.href='index.php';</script>";
         }
 
         else{
@@ -82,8 +78,7 @@ else{
                 echo "<script>window.location.href='index.php';</script>";
 
             }
-        }
-    
+        }  
 }
 
 echo "<script>window.location.href='adminhome.php';</script>";
