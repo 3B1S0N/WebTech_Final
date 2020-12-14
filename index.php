@@ -70,7 +70,7 @@
 					</div>
 -->
 					<div class="text-center w-full p-t-25 p-b-23">
-						<a class="txt1" href="adminRegisterFront.html">
+						<a class="txt1" href="adminSignup.php">
 							Create Organiser account
 							<i class="fa fa-long-arrow-right"></i>						
 						</a>

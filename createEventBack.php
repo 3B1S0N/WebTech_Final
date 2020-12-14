@@ -31,7 +31,7 @@ $streamAttendance = $_POST['stream_attendance'];
 
 if(isset($_SESSION['organiser'])){
     $organiser_id = $_SESSION['organiser'];
-}
+
 //     $organiser_query = "SELECT company FROM organiser WHERE organiser_id = $organiser_id";
 //     $result = mysqli_query($conn,$organiser_query);
 //     if($result){
@@ -59,8 +59,9 @@ if(isset($_SESSION['organiser'])){
     
     else{
         die("ERROR: Could not execute.");
+        echo "Error";
     }
 
-// }
+ }
         
 ?>
