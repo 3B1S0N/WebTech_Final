@@ -36,11 +36,7 @@ $result = $db->query_executed("SELECT Event_Name FROM Events WHERE organiser_id 
                     <a class="active_link" href="adminhome.php">Dashboard</a>
                     <a href="createEventFront.php">Create Event</a>
             </div>
-            <div class="navbar__right">
-                <a href="#">
-                    <img width="30"src="images/avatar-01.jpg" alt="">
-                </a>
-            </div>
+    
         </nav>
 
         <main>

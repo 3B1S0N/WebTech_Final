@@ -96,12 +96,7 @@
 						<span class="focus-input100"></span>
                     </div>
                     
-                    <!-- <div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
-                        <label for="Password" class="input200" >Password</label><br>
-						<input class="input100" type="password" name="pass" placeholder="Password">
-						<span class="focus-input100"></span>
-					</div> -->
-					
+                
 					<div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
 						<label for="password" class="input200"><b>Password</b></label>   
 						<div ng-controller="PasswordController">
@@ -112,12 +107,7 @@
 						</div>  
 						
 					</div>
-                    <!-- <div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
-                        <label for="email" class="input200" >Confirm Password</label><br>
-						<input class="input100" type="password" name="verifypass" placeholder="Confirm Password">
-						<span class="focus-input100"></span>
-                    </div> -->
-                  
+                 
 					<div class="container-login100-form-btn p-t-10">
 						<button class="login100-form-btn" type="submit" form = "Adminregister">
 							Register as Organiser
