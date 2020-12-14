@@ -7,37 +7,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <title>Admin Dashboard</title>
-    <?php
-
-        $conn = mysqli_connect('localhost', 'root', '', 'venty');
-
-        // check connection
-        if (!$conn) {    
-            die('Connection failed: ' . mysqli_connect_error());
-        }
-
-        
-        if (isset($_GET['delete'])){
-            $delete = "DELETE FROM Events WHERE Event_ID ='$_GET[delete]'";
-            $delete_query = mysqli_query($conn,$delete);
-            if($delete_query){
-                header("Location:deleteFeedback.php");
-            }
-            
-        }
-        
-        session_start(); 
-
-        // create connection
-                if(isset($_SESSION['organiser'])){
-                    $organiser_id = $_SESSION['organiser'];
-                }
-
-                $organiser_query = "SELECT * FROM Events WHERE organiser_id = $organiser_id";
-                $result = mysqli_query($conn,$organiser_query);
-
-?>
-
 </head>
 <body>
     <div class="container">
@@ -46,8 +15,8 @@
                 <i class="fa fa-bars"></i>
             </div>
             <div class="navbar__left">
-                    <a class="active_link" href="adminhome.php">Dashboard</a>
-                    <a href="createEventFront.php">Create Event</a>
+                    <a href="adminhome.php">Dashboard</a>
+                    <a class="active_link" href="createEventFront.php">Create Event</a>
             </div>
             <div class="navbar__right">
             </div>
@@ -58,31 +27,20 @@
 
                 <div class="main__title">
                     <div class="main_greeting">
-                        <?php
-                        if(isset($_SESSION['user'])){    
-                            echo '<h1>Hello ' . $_SESSION['user'] . '</h1><br>'; 
-                        }
-                        ?>
-                        <!-- <h1>Hello *Insert Name Here*</h1> -->
-                        <p>Welcome to your admin dashboard</p><br><br><br>
+                       
                     </div>
                 </div>
 
-                <div class="main__cards">
-                <?php
-                    while($row = mysqli_fetch_assoc($result)){
-                        ?>
-                    <div class="card" id="card1">
-                        <i class="fa fa fa-star-half-o fa-2x text-lightblue"></i>
-                        <div class="card__inner">
-                            <p class="text-primary-p"><?php echo $row['Event_Name']; ?></p><br>
-                            <span class="font-bold text-title"><a href="deleteFront.php?delete=<?php echo $row['Event_ID']?>" id="thisLink">DELETE</a></span>
-                        </div>
-                    </div>
-                    <?php
-                        }
-                    ?>
-
+                <div class="scroll">
+            <div>   
+                <div class="tiny_container">
+                    <h1 id="CreateFeedback">Your Event Has Been Succesfully Deleted!</h1><br>
+                    
+                    <button onclick ="window.location.href='updateHome.php'" class="button1 text-primary-g"><i id = "createIcon" class="fa fa-pencil-square-o"></i> Update Another</button>
+                </div>
+            </div>
+                  
+                  
                 </div>
             </div>
         </main>
@@ -108,7 +66,7 @@
                 </div>
                 <div class="sidebar__link" id ="update">
                     <i class="fa fa-pencil-square-o"></i>
-                    <a href="updateFront.php" id ="updateSpecial">Update Event</a>
+                    <a href="updateHome.php" id ="updateSpecial">Update Event</a>
                 </div>
                 <div class="sidebar__link" id ="delete">
                     <i class="fa fa-trash"></i>
@@ -127,6 +85,8 @@
         </div>
 
     </div>
-    <script src="sweetalert2.all.min.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="js/script.js"></script> -->
 </body>
 </html>

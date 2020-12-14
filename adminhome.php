@@ -48,6 +48,7 @@ $result = $db->query_executed("SELECT Event_Name FROM Events WHERE organiser_id 
                         if(isset($_SESSION['user'])){    
                             echo '<h1>Hello ' . $_SESSION['user'] . '</h1><br>'; 
                         }
+                        
                         ?>
                         <!-- <h1>Hello *Insert Name Here*</h1> -->
                         <p>Welcome to your admin dashboard</p><br><br><br>

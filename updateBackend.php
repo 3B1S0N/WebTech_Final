@@ -54,7 +54,7 @@ $ex_end_time, $ac_end_time, $Event_type, $Event_name, $Season, $Event_access, $L
     $update = mysqli_query($conn, $sql);
 
     if($update){  
-        echo "<script>window.location.href='adminhome.php';</script>";
+        echo "<script>window.location.href='updateFeedback.php';</script>";
         // do something to show it has been updated succesfully then add a back button
         //echo "succesful";
     }
