@@ -29,6 +29,7 @@ $results = $db->query_executed($sql);
 $verify = mysqli_query($db->connect(), "SELECT `email` FROM `organiser` WHERE `email` = '".$_POST['email']."'");
 if(mysqli_num_rows($verify) > 1) {
     echo "<script> alert('Username Already Exists') </script>";
+    echo "<script>window.location.href='adminSignup.php';</script>";
 }
 
 // verify query results and display appropriate message

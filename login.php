@@ -43,7 +43,8 @@ if (isset($_POST['butt1'])){
                 echo "<script>window.location.href='index.php';</script>";
 
             }
-    }
+        }
+    echo "<script>window.location.href='adminhome.php';</script>";
 }
 
 
@@ -69,19 +70,20 @@ else{
             $verify_pass = password_verify($upass, $user['pass']);
     
             // set user session if password is verified
-            if ($verify_pass) {    
-                
+            if ($verify_pass) {     
                 $_SESSION['user'] = $user['fname'];
             }
+
             else{
                 echo "<script> alert('Wrong Passowrd. Try Again.') </script>";
                 echo "<script>window.location.href='index.php';</script>";
-
             }
-        }  
+    
+        }
+        echo "<script>window.location.href='createEventFront.php';</script>";  
 }
 
-echo "<script>window.location.href='adminhome.php';</script>";
+
     
     
 ?>

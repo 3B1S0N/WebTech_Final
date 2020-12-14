@@ -1,38 +1,35 @@
 <?php
 // create connection
-$conn = mysqli_connect('localhost', 'root', '', 'venty');
+include_once('databaseClass.php');
+$db = new DatabaseClass ();
 
-// check connection
-if (!$conn) {    
-    die("Connection failed: " . mysqli_connect_error());
-}
+$db->connect();
 
 // grab form data
 $fname = $_POST["First"];
 $lname = $_POST["Last"];
+$gender = $_POST["gender"];
 $uname = $_POST['username'];
 if(isset($_POST['pass'])){
     $upass = $_POST['pass'];
 }
-$verifypass = $_POST['verifypass'];
-$gender = $_POST["gender"];
 
-if($verifypass == $upass){
-    echo "<script> alert('Sorry, passwords do not match) </script>";
 
-    // hash the password
+
+// hash the password
 $pass_hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
 // write query
 $sql = "INSERT INTO client (fname, lname, email, pass, gender) VALUES ('$fname','$lname','$uname', '$pass_hash','$gender')";
 
 // execute query
-$results = mysqli_query($conn, $sql);
+$results = $db->query_executed($sql);
 
 //check email is unique
-$verify = mysqli_query($conn, "SELECT `email` FROM `client` WHERE `email` = '".$_POST['username']."'");
+$verify = mysqli_query($db->connect(), "SELECT `email` FROM `client` WHERE `email` = '".$_POST['username']."'");
 if(mysqli_num_rows($verify) > 1) {
     echo "<script> alert('Username Already Exists') </script>";
+    echo "<script>window.location.href='signupClient.php';</script>";
 }
 
 // verify query results and display appropriate message
@@ -41,20 +38,10 @@ if ($results) {
     exit();
 } 
 else {  
-    echo "<script> alert('Username Already Exists') </script>";
-    //echo "<script>window.location.href='clientRegisterFront.php';</script>";
+    echo "<script> alert('Error Could Not Register') </script>";
+    echo "<script>window.location.href='signupClient.php.';</script>";
 }  
     
-mysqli_close($conn);
-    
-}
-else{
-    
-    echo "<script>window.location.href='signup.php';</script>";
-
-}
-
-
 
 // Style Alert Box
 // https://www.tutorialspoint.com/How-to-create-and-apply-CSS-to-JavaScript-Alert-box

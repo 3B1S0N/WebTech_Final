@@ -1,11 +1,6 @@
 <?php 
 //consider security for id by researching html encrytption instead of ? id =1
 
-include_once('databaseClass.php');
-$db = new DatabaseClass ();
-
-$db->connect();
-
 class update_event{
 
 public $event_id;
@@ -59,7 +54,7 @@ $ex_end_time, $ac_end_time, $Event_type, $Event_name, $Season, $Event_access, $L
     $update = mysqli_query($conn, $sql);
 
     if($update){  
-        echo "<script>window.location.href='updateFeedback.php';</script>";
+        echo "<script>window.location.href='adminhome.php';</script>";
         // do something to show it has been updated succesfully then add a back button
         //echo "succesful";
     }
@@ -67,7 +62,7 @@ $ex_end_time, $ac_end_time, $Event_type, $Event_name, $Season, $Event_access, $L
     else{
         //echo "<script>window.location.href='adminhome.php';</script>";
         //Error Page
-        //echo "error";
+        die('Connection failed: ' . mysqli_connect_error());
         
     }
     

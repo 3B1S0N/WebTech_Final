@@ -70,7 +70,7 @@
 						</a>
 					</div>
 					<div class="text-center w-full">
-						<a class="txt1" href="signup.php">
+						<a class="txt1" href="signupClient.php">
 							<i class="fa fa-long-arrow-left"></i>
 							Create Client account						
 						</a>

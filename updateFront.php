@@ -9,6 +9,8 @@ if(isset($_GET['ID'])){
     $This_id = $_POST['ID'];
 }
 
+
+
 $result = $db->query_executed("SELECT * FROM Events WHERE Event_ID = $This_id");
 
 ?>
