@@ -8,34 +8,25 @@
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <title>Admin Dashboard</title>
     <?php
-
-        $conn = mysqli_connect('localhost', 'root', '', 'venty');
-
-        // check connection
-        if (!$conn) {    
-            die('Connection failed: ' . mysqli_connect_error());
-        }
-
+        session_start();
+        include_once('databaseClass.php');
+        $db = new DatabaseClass ();
+        $db->connect();
         
         if (isset($_GET['delete'])){
             $delete = "DELETE FROM Events WHERE Event_ID ='$_GET[delete]'";
-            $delete_query = mysqli_query($conn,$delete);
+            $delete_query = mysqli_query($db->connect(),$delete);
             if($delete_query){
                 header("Location:deleteFeedback.php");
-            }
-            
+            }     
         }
-        
-        session_start(); 
+              
+        if(isset($_SESSION['organiser'])){
+            $organiser_id = $_SESSION['organiser'];
+        }
 
-        // create connection
-                if(isset($_SESSION['organiser'])){
-                    $organiser_id = $_SESSION['organiser'];
-                }
-
-                $organiser_query = "SELECT * FROM Events WHERE organiser_id = $organiser_id";
-                $result = mysqli_query($conn,$organiser_query);
-
+        $organiser_query = "SELECT * FROM Events WHERE organiser_id = $organiser_id";
+        $result = mysqli_query($db->connect(),$organiser_query);
 ?>
 
 </head>
@@ -63,7 +54,7 @@
                             echo '<h1>Hello ' . $_SESSION['user'] . '</h1><br>'; 
                         }
                         ?>
-                        <!-- <h1>Hello *Insert Name Here*</h1> -->
+    
                         <p>Welcome to your admin dashboard</p><br><br><br>
                     </div>
                 </div>

@@ -85,9 +85,6 @@
 
                         <label for="stream_attendance">Livestream Attendance Level</label> 
                         <input type="number" name="stream_attendance" min="0"><br><br>
-
-                        <!-- <label for="company_name">Company Name</label> 
-                        <input type="text" name="company_name" id="company_name"><br><br> -->
                             
                         <button type="submit" form = "thisform" name="create_event" class="button">Create Event</button>
                             
@@ -138,8 +135,5 @@
         </div>
 
     </div>
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="js/script.js"></script> -->
 </body>
 </html>

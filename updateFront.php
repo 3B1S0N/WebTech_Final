@@ -2,14 +2,11 @@
 include_once('databaseClass.php');
 $db = new DatabaseClass ();
 
-
 if(isset($_GET['ID'])){
     $This_id = $_GET['ID'];
 } else if(isset($_POST['ID'])){
     $This_id = $_POST['ID'];
 }
-
-
 
 $result = $db->query_executed("SELECT * FROM Events WHERE Event_ID = $This_id");
 
@@ -110,11 +107,9 @@ $result = $db->query_executed("SELECT * FROM Events WHERE Event_ID = $This_id");
                         <label for="stream_attendance">Livestream Attendance Level</label> 
                         <input type="number" name="stream_attendance" value="<?php echo $row['Streamer_level'];?>" min="0"><br><br>
 
-                        
-                        
                         <?php
                             }     
-                    ?>      
+                        ?>      
                 </form> 
                 <button type="submit" form = "thisform" name="create_event" class="button">Update Event</button>
                                      

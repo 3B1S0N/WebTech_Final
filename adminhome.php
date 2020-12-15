@@ -9,11 +9,7 @@ if(isset($_SESSION['organiser'])){
 
 $result = $db->query_executed("SELECT Event_Name FROM Events WHERE organiser_id = $organiser_id");
 
-// $organiser_query = "SELECT Event_Name FROM Events WHERE organiser_id = $organiser_id";
-// $result = mysqli_query($db->connect(),$organiser_query);
-
 ?>
-
 
 
 <!DOCTYPE html>
@@ -36,9 +32,7 @@ $result = $db->query_executed("SELECT Event_Name FROM Events WHERE organiser_id 
                     <a class="active_link" href="adminhome.php">Dashboard</a>
                     <a href="createEventFront.php">Create Event</a>
             </div>
-    
         </nav>
-
         <main>
             <div class="main__container">
 
@@ -70,56 +64,7 @@ $result = $db->query_executed("SELECT Event_Name FROM Events WHERE organiser_id 
                     </div>
                     <?php
                         }
-                    ?>
-                               
-                <!-- <div class="container"> 
-                    <div class="charts"> -->
-
-                        <!-- <div class="charts__left">
-                            <div class="charts__left__title">
-                                <div>
-                                    <h1>Daily Reports</h1>
-                                    <p>Cupertino, California, USA</p>
-                                </div>
-                                <i class="fa fa-usd"></i>
-                            </div>
-                            <div id="apex1"></div>
-                        </div> -->
-
-                        <!-- <div class="charts__right">
-                            <div class="charts__right__title">
-                                <div>
-                                    <h1>Stats Reports</h1>
-                                    <p>Cupertino, California, USA</p>
-                                </div>
-                                <i class="fa fa-usd"></i>
-                            </div>
-
-                            <div class="charts__right_cards">
-    
-                                <div class="card1">
-                                    <h1>Income</h1>
-                                    <p>$75,300</p>
-                                </div>
-
-                                <div class="card2">
-                                    <h1>Sales</h1>
-                                    <p>$124,100</p>
-                                </div>
-
-                                <div class="card3">
-                                    <h1>Users</h1>
-                                    <p>3900</p>
-                                </div>
-
-                                <div class="card4">
-                                    <h1>Orders</h1>
-                                    <p>1881</p>
-                                </div>
-                            </div>
-                        </div> -->
-                    <!-- </div>
-                </div> -->
+                    ?>             
 
                 </div>
             </div>
@@ -165,8 +110,5 @@ $result = $db->query_executed("SELECT Event_Name FROM Events WHERE organiser_id 
         </div>
 
     </div>
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="js/script.js"></script> -->
 </body>
 </html>

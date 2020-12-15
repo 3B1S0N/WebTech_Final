@@ -38,8 +38,7 @@
                     
                     <button onclick ="window.location.href='createEventFront.php'" class="button1 text-primary-f"><i id = "createIcon" class="fa fa-plus-circle"></i> Create Another</button>
                 </div>
-            </div>
-                  
+            </div>        
                   
                 </div>
             </div>
@@ -85,8 +84,5 @@
         </div>
 
     </div>
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="js/script.js"></script> -->
 </body>
 </html>

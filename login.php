@@ -47,43 +47,6 @@ if (isset($_POST['butt1'])){
     echo "<script>window.location.href='adminhome.php';</script>";
 }
 
-
-else{
-        // write client query
-        $sql_2 = "SELECT * FROM client WHERE email = '$email'";
-
-        // Execute query
-        $result_2 = $db->query_executed($sql_2);
-
-         // Verify if their email account is in organiser table
-        if (mysqli_num_rows($result_2) != 1) {    
-            echo "<script> alert('Hmmm...Are you sure you are registered as a Client?') </script>";
-            echo "<script>window.location.href='index.php';</script>";
-        }
-
-        else{
-
-            // get query result as an array
-            $user = mysqli_fetch_assoc($result_2);
-    
-            // verify user password match
-            $verify_pass = password_verify($upass, $user['pass']);
-    
-            // set user session if password is verified
-            if ($verify_pass) {     
-                $_SESSION['user'] = $user['fname'];
-            }
-
-            else{
-                echo "<script> alert('Wrong Passowrd. Try Again.') </script>";
-                echo "<script>window.location.href='index.php';</script>";
-            }
-    
-        }
-        echo "<script>window.location.href='createEventFront.php';</script>";  
-}
-
-
-    
+  
     
 ?>

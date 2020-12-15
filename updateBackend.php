@@ -1,5 +1,4 @@
 <?php 
-//consider security for id by researching html encrytption instead of ? id =1
 include_once('databaseClass.php');
 
 class update_event{
@@ -46,31 +45,17 @@ $ex_end_time, $ac_end_time, $Event_type, $Event_name, $Season, $Event_access, $L
     $db = new DatabaseClass ();
 
     $db->connect();
-    
-    // $conn = mysqli_connect('localhost', 'root', '', 'venty');
-    
-    // // check connection
-    // if (!$conn) {    
-    //     die('Connection failed: ' . mysqli_connect_error());
-    // }
-    
-    // $update = mysqli_query($conn, $sql);
     $update = $db->query_executed($sql);
 
     if($update){  
-        echo "<script>window.location.href='updateFeedback.php';</script>";
-        // do something to show it has been updated succesfully then add a back button
-        //echo "succesful";
+        echo "<script>window.location.href='updateFeedback.php';</script>";    
     }
 
     else{
-        //echo "<script>window.location.href='adminhome.php';</script>";
-        //Error Page
         die('Connection failed: ' . mysqli_connect_error());
         
     }
     
-
 }   
 
 }

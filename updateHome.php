@@ -4,28 +4,13 @@ include_once('databaseClass.php');
 $db = new DatabaseClass ();
 $db->connect();
 
-
-// // create connection
-// $conn = mysqli_connect('localhost', 'root', '', 'venty');
-
-// // check connection
-// if (!$conn) {    
-//     die('Connection failed: ' . mysqli_connect_error());
-// }
-
 if(isset($_SESSION['organiser'])){
     $organiser_id = $_SESSION['organiser'];
 }
 
 $result = $db->query_executed("SELECT * FROM Events WHERE organiser_id = $organiser_id");
 
-// $organiser_query = "SELECT * FROM Events WHERE organiser_id = $organiser_id";
-// $result = mysqli_query($conn,$organiser_query);
-
-
 ?>
-
-
 
 
 <!DOCTYPE html>

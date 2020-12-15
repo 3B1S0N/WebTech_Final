@@ -57,22 +57,12 @@
 						<button class="login100-form-btn" type="submit" form = "login" name="butt1">
 							Login as Organiser
 						</button> 
-
-						<button class="login100-form-btn" style="margin-top: 10px;" type="submit" form = "login" name="butt2">
-							Login as Client
-						</button> 
 					</div>
 
 					<div class="text-center w-full p-t-25 p-b-23">
 						<a class="txt1" href="adminSignup.php">
 							Create Organiser account
 							<i class="fa fa-long-arrow-right"></i>						
-						</a>
-					</div>
-					<div class="text-center w-full">
-						<a class="txt1" href="signupClient.php">
-							<i class="fa fa-long-arrow-left"></i>
-							Create Client account						
 						</a>
 					</div>
 				</form>

@@ -39,8 +39,7 @@
                     <button onclick ="window.location.href='updateHome.php'" class="button1 text-primary-g"><i id = "createIcon" class="fa fa-pencil-square-o"></i> Update Another</button>
                 </div>
             </div>
-                  
-                  
+                            
                 </div>
             </div>
         </main>
@@ -85,8 +84,5 @@
         </div>
 
     </div>
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="js/script.js"></script> -->
 </body>
 </html>

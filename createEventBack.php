@@ -5,13 +5,6 @@ $db = new DatabaseClass ();
 
 $db->connect();
 
-// // create connection
-// $conn = mysqli_connect('localhost', 'root', '', 'venty');
-
-// // check connection
-// if (!$conn) {    
-//     die('Connection failed: ' . mysqli_connect_error());
-// }
 
 //grab form data 
 $startDate = $_POST['start_date'];
@@ -31,17 +24,6 @@ $streamAttendance = $_POST['stream_attendance'];
 
 if(isset($_SESSION['organiser'])){
     $organiser_id = $_SESSION['organiser'];
-
-//     $organiser_query = "SELECT company FROM organiser WHERE organiser_id = $organiser_id";
-//     $result = mysqli_query($conn,$organiser_query);
-//     if($result){
-//         $row = mysqli_fetch_assoc($result);
-//         $company = $row['company'];
-//     }
-//     else{
-//         die("ERROR: Could not able to execute  $organiser_query. " . mysqli_error($conn));
-//     }
-
 
 
     $sql = "INSERT INTO Events (Event_Date, Expected_start_time, Actual_start_time, 
