@@ -25,7 +25,6 @@ $streamAttendance = $_POST['stream_attendance'];
 if(isset($_SESSION['organiser'])){
     $organiser_id = $_SESSION['organiser'];
 
-
     $sql = "INSERT INTO Events (Event_Date, Expected_start_time, Actual_start_time, 
     Expected_end_time, Actual_end_time, Event_Type, Event_Name, Season, 
     Ticketed, Event_location, Event_capacity, Attendance_level, Streamer_level, 
@@ -33,7 +32,7 @@ if(isset($_SESSION['organiser'])){
     '$eventType','$eventName', '$season','$accessType','$location','$capacity','$attendance'
     ,'$streamAttendance','$organiser_id')"; 
 
-    $results = $db->query_executed($sql);
+    $results = mysqli($db->connect(),$sql);
 
     if($results){
         echo "<script>window.location.href='createEventFeedback.php';</script>";

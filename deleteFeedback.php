@@ -36,7 +36,7 @@
                 <div class="tiny_container">
                     <h1 id="CreateFeedback">Your Event Has Been Succesfully Deleted!</h1><br>
                     
-                    <button onclick ="window.location.href='updateHome.php'" class="button1 text-primary-g"><i id = "createIcon" class="fa fa-pencil-square-o"></i> Update Another</button>
+                    <button onclick ="window.location.href='deleteFront.php'" class="button1 text-primary-g"><i id = "createIcon" class="fa fa-trash"></i> Delete Another</button>
                 </div>
             </div>
                             

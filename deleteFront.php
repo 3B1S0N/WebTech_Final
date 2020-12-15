@@ -67,7 +67,8 @@
                         <i class="fa fa fa-star-half-o fa-2x text-lightblue"></i>
                         <div class="card__inner">
                             <p class="text-primary-p"><?php echo $row['Event_Name']; ?></p><br>
-                            <span class="font-bold text-title"><a href="deleteFront.php?delete=<?php echo $row['Event_ID']?>" id="thisLink">DELETE</a></span>
+                            <span class="font-bold text-title"><a href="deleteFront.php?delete=<?php echo $row['Event_ID']?>" id="thisLink">DELETE</a></span><br><br>
+                            <span class="font-bold text-title">Once you click, it will be permanent.</span>
                         </div>
                     </div>
                     <?php
