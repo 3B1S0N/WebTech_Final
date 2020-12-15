@@ -1,1 +1,1 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":114:{a:2:{s:7:"defects";a:1:{s:21:"ThisTest::testFailure";i:3;}s:5:"times";a:1:{s:21:"ThisTest::testFailure";d:0.037;}}}
+C:37:"PHPUnit\Runner\DefaultTestResultCache":304:{a:2:{s:7:"defects";a:3:{s:21:"ThisTest::testFailure";i:3;s:34:"ThisTest::testMysqlConnectIsObject";i:4;s:33:"ThisTest::testQueryFunctionIsBool";i:4;}s:5:"times";a:3:{s:21:"ThisTest::testFailure";d:0.037;s:34:"ThisTest::testMysqlConnectIsObject";d:0.092;s:33:"ThisTest::testQueryFunctionIsBool";d:0.041;}}}

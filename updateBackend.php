@@ -1,5 +1,6 @@
 <?php 
 //consider security for id by researching html encrytption instead of ? id =1
+include_once('databaseClass.php');
 
 class update_event{
 
@@ -42,16 +43,19 @@ $ex_end_time, $ac_end_time, $Event_type, $Event_name, $Season, $Event_access, $L
     Season = '$Season', Ticketed = '$Event_access', Event_location = '$Location', Event_capacity = '$Capacity', Attendance_level = '$Attendance', 
     Streamer_level = '$Streams' WHERE Event_ID = '$event_id'";
     
+    $db = new DatabaseClass ();
+
+    $db->connect();
     
+    // $conn = mysqli_connect('localhost', 'root', '', 'venty');
     
-    $conn = mysqli_connect('localhost', 'root', '', 'venty');
+    // // check connection
+    // if (!$conn) {    
+    //     die('Connection failed: ' . mysqli_connect_error());
+    // }
     
-    // check connection
-    if (!$conn) {    
-        die('Connection failed: ' . mysqli_connect_error());
-    }
-    
-    $update = mysqli_query($conn, $sql);
+    // $update = mysqli_query($conn, $sql);
+    $update = $db->query_executed($sql);
 
     if($update){  
         echo "<script>window.location.href='updateFeedback.php';</script>";

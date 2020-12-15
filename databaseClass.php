@@ -1,12 +1,15 @@
 <?php
 
-class DatabaseClass  
-{  
-    private $host = "localhost"; // your host name  
-    private $username = "root"; // your user name  
-    private $password = ""; // your password  
-    private $db = "venty"; // your database name  
+class DatabaseClass{  
+    private $host = "localhost"; 
+    private $username = "root";  
+    private $password ="";  
+    private $db = "venty";
+    function password(){
+        getenv('MYSQLPASS'??"");
+    }  
     
+
     public function __construct(){
         // $this->host = $host;
         // $this->username = $username;
@@ -15,7 +18,7 @@ class DatabaseClass
     }
 
     public function connect(){
-        $conn = mysqli_connect($this->host, $this->username, $this->password, $this->db);
+        $conn = mysqli_connect($this->host, $this->username, $this->password(), $this->db);
 
         // Check connection
         if (!$conn) {
