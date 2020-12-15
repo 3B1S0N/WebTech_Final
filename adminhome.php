@@ -7,7 +7,7 @@ if(isset($_SESSION['organiser'])){
     $organiser_id = $_SESSION['organiser'];
 }
 
-$result = $db->query_executed("SELECT Event_Name FROM Events WHERE organiser_id = $organiser_id");
+$result = $db->query_executed("SELECT * FROM Events WHERE organiser_id = $organiser_id");
 
 ?>
 
@@ -57,9 +57,8 @@ $result = $db->query_executed("SELECT Event_Name FROM Events WHERE organiser_id 
                         <i class="fa fa fa-star-half-o fa-2x text-lightblue"></i>
                         <div class="card__inner">
                             <p class="text-primary-p"><?php echo $row['Event_Name']; ?></p><br>
-                            <span class="font-bold text-title">*Insert*</span><br><br>
-                            <span class="font-bold text-title">*Insert*</span><br><br>
-                            <span class="font-bold text-title">*Insert*</span>
+                            <span class="font-bold text-title"><?php echo ($row['Attendance_level']/$row['Event_capacity']*100)."% ". " Attendance Level"; ?></span><br><br>
+                            <span class="font-bold text-title"><?php echo (round($row['Streamer_level']/$row['Attendance_level'])).": 1"."\r\n" . " Stream to attendee ratio"; ?></span><br><br>
                         </div>
                     </div>
                     <?php

@@ -7,7 +7,6 @@ $db = new DatabaseClass ();
 
 $db->connect();
 
-
 $This_id = $_POST['ID'];
 $startDate = $_POST['start_date'];
 $exStartTime = $_POST['ex_start_time'];
