@@ -32,7 +32,7 @@ if(isset($_SESSION['organiser'])){
     '$eventType','$eventName', '$season','$accessType','$location','$capacity','$attendance'
     ,'$streamAttendance','$organiser_id')"; 
 
-    $results = mysqli($db->connect(),$sql);
+    $results = $db->execute_query($sql);
 
     if($results){
         echo "<script>window.location.href='createEventFeedback.php';</script>";
