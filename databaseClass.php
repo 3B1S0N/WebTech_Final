@@ -5,12 +5,13 @@ class DatabaseClass{
     private $username = "root";  
     private $password ="";  
     private $db = "venty";
-    function password(){
-        getenv('MYSQLPASS'??"");
-    }  
+    // function password(){
+    //     getenv('MYSQLPASS'??"");
+    // }  
     
 
     public function __construct(){
+        $this->password = getenv('MYSQLPASS'??"");
         // $this->host = $host;
         // $this->username = $username;
         // $this->password = $passs;
