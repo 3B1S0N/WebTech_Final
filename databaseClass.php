@@ -19,7 +19,7 @@ class DatabaseClass{
     }
 
     public function connect(){
-        $conn = mysqli_connect($this->host, $this->username, $this->password(), $this->db);
+        $conn = mysqli_connect($this->host, $this->username, $this->password, $this->db);
 
         // Check connection
         if (!$conn) {
